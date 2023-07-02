@@ -1,0 +1,36 @@
+server:
+  port: 8085
+
+logging:
+  level:
+    root: info
+    com.gn: debug
+
+logstash:
+  host: localhost
+  enableInnerLog: false
+
+spring:
+  application:
+    name: springcloud-alibaba-dubbo-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848,127.0.0.1:8849,127.0.0.1:8850
+  main:
+    allow-bean-definition-overriding: true
+
+dubbo:
+  scan:
+  # dubbo 服务扫描包
+  #    base-packages: com.pengheng.service.impl
+  protocol:
+    # 设置协议为dubbo
+    name: dubbo
+    # dubbo 协议端口 （-1 表示自增端口，从20880开始）
+    port: -1
+  registry:
+    # 以下是配置中已包含nacos配置的写法
+    address: spring-cloud://192.168.126.129:8848
+  cloud:
+#    subscribed-services: springcloud-alibaba-dubbo-provider,springcloud-alibaba-dubbo-consumer
