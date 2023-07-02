@@ -47,8 +47,8 @@
         <jaxb-api.version>2.3.1</jaxb-api.version>
         <kafka.version>3.0.8</kafka.version>
         <common.version>1.0-SNAPSHOT</common.version>
-        <spring-cloud-dependencies.version>2020.0.3</spring-cloud-dependencies.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <spring-cloud-dependencies.version>2021.0.8</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <dubbo.version>3.0.10</dubbo.version>
     </properties>
 
