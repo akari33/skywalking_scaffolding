@@ -14,6 +14,6 @@ public class Test1ApiImpl implements Test1Api {
     @Override
     public Map<String, Objects> sendTest1Task(String date) {
         log.info("Test1ApiImpl.sendTest1Task() called with: date = [{}]", date);
-        return null;
+        throw new RuntimeException("Test1ApiImpl.sendTest1Task() called with: date = [" + date + "]");
     }
 }
