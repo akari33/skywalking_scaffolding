@@ -1,0 +1,52 @@
+server:
+  port: 8086
+
+logging:
+  level:
+    root: info
+    com.gn: debug
+
+logstash:
+  host: localhost
+  enableInnerLog: false
+
+spring:
+  application:
+    name: test2
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.126.129:8848
+  main:
+    allow-bean-definition-overriding: true
+  kafka:
+    bootstrap-servers: 192.168.126.129:9092
+    # 消费者
+    consumer:
+      # 消费者组
+      group-id: TestGroup
+      # 是否自动提交
+      enable-auto-commit: false
+      # 消费偏移配置
+      # none：如果没有为消费者找到先前的offset的值,即没有自动维护偏移量,也没有手动维护偏移量,则抛出异常
+      # earliest：在各分区下有提交的offset时：从offset处开始消费；在各分区下无提交的offset时：从头开始消费
+      # latest：在各分区下有提交的offset时：从offset处开始消费；在各分区下无提交的offset时：从最新的数据开始消费
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+dubbo:
+  application:
+    name: test2
+  #  scan:
+  # dubbo 服务扫描包
+  #    base-packages: com.pengheng.service.impl
+  protocol:
+    # 设置协议为dubbo
+    name: dubbo
+    # dubbo 协议端口 （-1 表示自增端口，从20880开始）
+    port: -1
+  registry:
+    # 以下是配置中已包含nacos配置的写法
+    address: nacos://192.168.126.129:8848
+    parameters.register-consumer-url: true

@@ -13,8 +13,8 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
-    <artifactId>test1</artifactId>
-    <description>test1</description>
+    <artifactId>test2</artifactId>
+    <description>test2</description>
 
 
     <dependencies>
@@ -40,17 +40,6 @@
             <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
 
-        <!--        open api sdk-->
-        <dependency>
-            <groupId>com.theokanning.openai-gpt3-java</groupId>
-            <artifactId>service</artifactId>
-            <version>0.14.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.13.4.2</version>
-        </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>

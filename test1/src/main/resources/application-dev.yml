@@ -19,11 +19,25 @@ spring:
         server-addr: 192.168.126.129:8848
   main:
     allow-bean-definition-overriding: true
+  kafka:
+    bootstrap-servers: 192.168.126.129:9092
+    # 生产者
+    producer:
+      # 重试次数，设置大于0的值，则客户端会将发送失败的记录重新发送
+      retries: 3
+      batch-size: 16384 #批量处理大小，16K
+      buffer-memory: 33554432 #缓冲存储大，32M
+      acks: 1
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 dubbo:
+  application:
+    name: test1
   scan:
-  # dubbo 服务扫描包
-  #    base-packages: com.pengheng.service.impl
+    # dubbo 服务扫描包
+    base-packages: com.gn.test1.api
   protocol:
     # 设置协议为dubbo
     name: dubbo
@@ -31,6 +45,7 @@ dubbo:
     port: -1
   registry:
     # 以下是配置中已包含nacos配置的写法
-    address: spring-cloud://192.168.126.129:8848
-  cloud:
-#    subscribed-services: springcloud-alibaba-dubbo-provider,springcloud-alibaba-dubbo-consumer
+    address: nacos://192.168.126.129:8848
+    parameters.register-consumer-url: false
+#  cloud:
+#    subscribed-services: test1,test2
