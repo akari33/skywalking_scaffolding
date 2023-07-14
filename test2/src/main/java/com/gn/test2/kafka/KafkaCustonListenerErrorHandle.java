@@ -12,6 +12,7 @@ public class KafkaCustonListenerErrorHandle {
     public ConsumerAwareListenerErrorHandler listenerErrorHandler() {
         return (message, exception, consumer) -> {
             System.out.println("消费异常：" + message.getPayload() + "   " + TraceContext.traceId());
+            //这里就存入对应的数据库中进行兜底
 //            throw new RuntimeException("消费异常：" + message.getPayload() + TraceContext.traceId());
             return null;
         };

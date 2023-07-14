@@ -3,9 +3,11 @@ package com.gn.test2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@ComponentScan(basePackages = {"com.gn.common", "com.gn.test2"})
 public class Test2Application {
 
 //    @DubboReference

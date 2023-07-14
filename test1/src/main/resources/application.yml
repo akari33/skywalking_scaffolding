@@ -2,4 +2,4 @@ spring:
   application:
     name: test1
   profiles:
-    active: dev #默认为开发环境
+    include: dev #默认为开发环境
